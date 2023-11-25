@@ -32,4 +32,4 @@ app.use((_, res) => {
 });
 
 //Puts server up.
-https.createServer(options, server).listen(8000);
+https.createServer(options, app).listen(8000);
