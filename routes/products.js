@@ -1,5 +1,5 @@
 //Imports required dependencies.
-import express from 'express';
+const express = require('express');
 
 //Initializes dataset.
 const lista_produtos = {
@@ -86,4 +86,4 @@ router.delete('/:id', (req, res) => {
 });
 
 //Exports router.
-export default router;
+module.exports = router;

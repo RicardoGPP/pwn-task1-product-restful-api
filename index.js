@@ -1,26 +1,35 @@
 //Imports required dependencies.
-import express from 'express';
-import morgan from 'morgan';
-import products from './routes/products.js';
+const express = require('express');
+const https = require('https');
+const fs = require('fs');
+const morgan = require('morgan');
+const products = require('./routes/products.js');
+
+//Sets the domain.
+const domain = 'ricardows.vps.webdock.cloud';
+
+//Creates SSL configuration.
+const options = {
+    key: fs.readFileSync(`/etc/letsencrypt/live/${domain}/privkey.pem`),
+    cert: fs.readFileSync(`/etc/letsencrypt/live/${domain}/fullchain.pem`)
+};
 
 //Creates an express server.
-const server = express();
+const app = express();
 
 //Sets conversion middlewares.
-server.use(express.json());
+app.use(express.json());
 
 //Sets logging middleware.
-server.use(morgan('common'));
+app.use(morgan('common'));
 
 //Sets products resource/router middleware.
-server.use('/produtos', products);
+app.use('/produtos', products);
 
 //Sets default 404 middleware.
-server.use((_, res) => {
+app.use((_, res) => {
     res.status(404).send('<h2>404 - Resource not found.</h2>');
 });
 
 //Puts server up.
-server.listen(3000, () => {
-    console.log('Server is running on port 3000.');
-})
+https.createServer(options, server).listen(8000);
