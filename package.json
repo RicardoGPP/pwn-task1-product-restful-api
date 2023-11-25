@@ -1,0 +1,24 @@
+{
+  "name": "pwn-task1-product-restful-api",
+  "version": "1.0.0",
+  "description": "Products RESTful API",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicardoGPP/pwn-task1-product-restful-api.git"
+  },
+  "author": "Ricardo Giovani Piantavinha Perandré",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicardoGPP/pwn-task1-product-restful-api/issues"
+  },
+  "homepage": "https://github.com/RicardoGPP/pwn-task1-product-restful-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
